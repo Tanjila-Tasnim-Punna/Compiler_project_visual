@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Educational Compiler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Educational Compiler</h1>
+      <textarea
+        id="code"
+        spellcheck="false"
+        placeholder="Type your program here..."
+      >int a, b;
+a = 3 + 4 * 2;
+b = a - 5;
+print(a);
+print(b);
+</textarea>
+      <div class="actions">
+        <button id="compileBtn">Compile</button>
+        <span id="status"></span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="tokens">Tokens</button>
+        <button class="tab" data-tab="symbols">Symbol Table</button>
+        <button class="tab" data-tab="parse">Parse Tree</button>
+        <button class="tab" data-tab="tac">TAC</button>
+        <button class="tab" data-tab="asm">Assembly</button>
+        <button class="tab" data-tab="errors">Errors</button>
+      </div>
+
+      <div id="panel-tokens" class="panel show">
+        <div class="table-container">
+          <table id="tokens-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Lexeme</th>
+                <th>Line</th>
+              </tr>
+            </thead>
+            <tbody id="out-tokens"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="panel-symbols" class="panel">
+        <div class="table-container">
+          <table id="symbols-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Scope</th>
+              </tr>
+            </thead>
+            <tbody id="out-symbols"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="panel-parse" class="panel">
+        <div id="parse-tree-container"></div>
+      </div>
+      <div id="panel-tac" class="panel"><pre id="out-tac"></pre></div>
+      <div id="panel-asm" class="panel"><pre id="out-asm"></pre></div>
+      <div id="panel-errors" class="panel"><pre id="out-errors"></pre></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
